@@ -1,12 +1,11 @@
-package com.test;
+package cn.test;
 
 import org.junit.Test;
 
-public class MyTest {
+public class HelloWorld {
 
     @Test
-    public void testHello() {
+    public void hello() {
         System.out.println("hello world!");
     }
-
 }
