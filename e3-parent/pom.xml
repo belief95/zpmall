@@ -22,6 +22,20 @@
     <module>e3-sso/e3-sso-interface</module>
     <module>e3-sso-web</module>
   </modules>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.5.RELEASE</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+  </dependencies>
+
   <packaging>pom</packaging>
   <!-- 集中定义依赖版本号 -->
   <properties>
@@ -31,7 +45,7 @@
     <mybatis.spring.version>1.2.2</mybatis.spring.version>
     <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
     <mysql.version>5.1.32</mysql.version>
-    <slf4j.version>1.6.4</slf4j.version>
+    <slf4j.version>1.7.16</slf4j.version>
     <jackson.version>2.4.2</jackson.version>
     <druid.version>1.0.9</druid.version>
     <httpclient.version>4.3.5</httpclient.version>
@@ -54,6 +68,7 @@
     <freemarker.version>2.3.23</freemarker.version>
     <quartz.version>2.2.2</quartz.version>
   </properties>
+
   <dependencyManagement>
     <dependencies>
       <!-- 时间操作组件 -->
@@ -143,11 +158,11 @@
         <version>${druid.version}</version>
       </dependency>
       <!-- Spring -->
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.springframework</groupId>-->
+<!--        <artifactId>spring-context</artifactId>-->
+<!--        <version>${spring.version}</version>-->
+<!--      </dependency>-->
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-beans</artifactId>
@@ -240,7 +255,6 @@
         <artifactId>freemarker</artifactId>
         <version>${freemarker.version}</version>
       </dependency>
-
     </dependencies>
   </dependencyManagement>
 
@@ -266,6 +280,20 @@
           <target>1.7</target>
           <encoding>UTF-8</encoding>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>com.e3mall.App</mainClass>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
     <pluginManagement>
